@@ -13,8 +13,6 @@ export default async function Page() {
     "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
   ];
 
-  // const videos = await getAllVideo();
-  //   console.log('video data',videos);
   return (
     <section className="container mx-auto my-10">
       <div className="mx-auto max-w-[300px] max-h-[600px] overflow-x-hidden overflow-y-auto scrollbar-hide bg-slate-300 ">

@@ -2,9 +2,8 @@
 import Link from "next/link";
 import React, { useState, useRef } from "react";
 
-const VideoPlayer = ({video}) => {
- 
-  console.log('video link:',video);
+const VideoPlayer = ({ video }) => {
+  console.log("video link:", video);
 
   return (
     <section className="container flex justify-center mx-auto">
