@@ -7,7 +7,7 @@ const VideoPlayer = ({ video }) => {
 
   return (
     <section className="container flex justify-center mx-auto">
-      <div id="id" className="border-b py-6">
+      <div id="id" className="py-6">
         <div className="pl-3 w-full px-4">
           <div className="flex items-center justify-between pb-0.5">
             <Link href={`/profile/`}>
