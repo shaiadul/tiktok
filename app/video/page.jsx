@@ -11,6 +11,7 @@ export default function Page() {
     },
     {
       url: "https://media.istockphoto.com/id/1435103578/video/man-measuring-waist-with-a-tape-trying-to-look-thinner-weightloss-obsession.mp4?s=mp4-640x640-is&k=20&c=mvz3s1hUnNm8GsPwheFFtPWqjbllTFssW2eFblWx6f0=",
+      title: "Sintel",
     },
     {
       url: "https://www.shutterstock.com/shutterstock/videos/1076410847/preview/stock-footage-simple-countdown-motion-graphics.webm",
@@ -52,7 +53,8 @@ export default function Page() {
     );
   };
 
-  console.log("this is current video index", videoData[currentVideoIndex].url);
+  
+
   return (
     <section className="container mx-auto my-10 select-none">
       <div
