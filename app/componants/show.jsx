@@ -1,11 +1,12 @@
 import { Quando } from "next/font/google";
 import Link from "next/link";
 
+
 function Show({ value }) {
   const { id, price, title, thumbnail, bran, rating, category } = value;
 
   return (
-    <section className="">
+    <section className="" data-aos="fade-up">
       <Link href={`/blog/${id}`} className="block border rounded-lg p-4 shadow-sm shadow-indigo-100">
         <img
           alt="Home"

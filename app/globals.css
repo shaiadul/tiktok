@@ -4,13 +4,15 @@
 
 /* styles.css or your custom CSS file */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* video_container custom css file */
-  .video_container{
-    position: relative;
-    scroll-behavior: smooth;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
+  display: none;
+}
+
+/* video_container custom css file */
+.video_container {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.scroll_aria {
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+}

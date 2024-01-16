@@ -1,27 +1,17 @@
 "use client";
 import Link from "next/link";
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
-const VideoPlayer = ({ url, handleVideoEnded, title }) => {
-  // const videoRef = useRef(null);
-
-  // const handleVideoEnded = () => {
-  //   // Scroll to the next video when the current one ends
-  //   const nextVideo = videoRef.current.parentNode.nextSibling;
-
-  //   if (nextVideo) {
-  //     nextVideo.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // };
+const VideoPlayer = ({ video, handleVideoEnded }) => {
 
   return (
-    <section className="container flex justify-center mx-auto">
+    <section className="container flex justify-center mx-auto scroll_aria">
       <div id="id" className="py-6">
         <div className="pl-3 w-full px-4">
           <div className="flex items-center justify-between pb-0.5">
             <Link href={`/video`}>
               <span className="font-bold hover:underline cursor-pointer">
-                {title}
+                {video.title}
               </span>
             </Link>
           </div>
@@ -37,17 +27,15 @@ const VideoPlayer = ({ url, handleVideoEnded, title }) => {
                 controls
                 autoPlay
                 muted
-                className="rounded-xl object-cover mx-auto h-full"
-                src={url}
+                className="rounded-md object-cover mx-auto h-full"
+                src={video.url}
                 onEnded={handleVideoEnded}
               />
               {/* <img
-                className="absolute right-2 bottom-8 w-8 rounded-full"
+                className="absolute right-2 bottom-9 w-6 rounded-full"
                 src="https://img.freepik.com/premium-vector/tik-tok-logo_578229-290.jpg"
               /> */}
             </div>
-
-            {/* <PostMainLikes post={post} /> */}
           </div>
         </div>
       </div>
