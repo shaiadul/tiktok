@@ -1,24 +1,69 @@
+"use client";
 import getAllVideo from "@/lib/getAllVideo";
 import VideoPlayer from "../componants/videoPlayer";
+import { useState } from "react";
 
-export default async function Page() {
-  const videoLink = [
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-  ];
+export default function Page() {
+  
+  const videoData = [
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      title: "Big Buck Bunny",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      title: "Elephants Dream",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      title: "For Bigger Blazes",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      title: "For Bigger Escape",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      title: "Big Buck Bunny",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      title: "For Bigger Blazes",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      title: "For Bigger Escape",
+    },
+    {
+      url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      title: "Elephants Dream",
+    },
+  ]
 
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  const handleVideoEnded = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoData.length);
+  };
+  const handleScroll = (e) => {
+    const delta = Math.sign(e.deltaY);
+    setCurrentVideoIndex(
+      (prevIndex) => (prevIndex + delta + videoData.length) % videoData.length
+    );
+  };
+
+  console.log("this is current video index", videoData[currentVideoIndex].url);
   return (
     <section className="container mx-auto my-10">
-      <div className="mx-auto max-w-[300px] max-h-[600px] overflow-x-hidden overflow-y-auto scrollbar-hide bg-slate-300 ">
-        {videoLink.map((video) => {
-          return <VideoPlayer key={video} video={video} />;
-        })}
+      <div
+        onWheel={handleScroll}
+        className="mx-auto max-w-[360px] max-h-[600px] overflow-x-hidden overflow-y-auto scrollbar-hide cursor-pointer video_container"
+      >
+        <VideoPlayer
+          url={videoData[currentVideoIndex].url}
+          title={videoData[currentVideoIndex].title}
+          handleVideoEnded={handleVideoEnded}
+        />
       </div>
     </section>
   );

@@ -7,3 +7,10 @@
     display: none;
   }
   
+  /* video_container custom css file */
+  .video_container{
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
