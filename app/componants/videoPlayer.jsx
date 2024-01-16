@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
 const VideoPlayer = ({ video, handleVideoEnded }) => {
-
+ 
   return (
     <section className="container flex justify-center mx-auto scroll_aria">
       <div id="id" className="py-6">
